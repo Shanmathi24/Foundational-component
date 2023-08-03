@@ -2,13 +2,13 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { SuccessFailureScreenComponent } from './success-failure-screen.component';
-import { ApiService } from 'src/app/service/api.service';
 //import { DataService } from 'src/app/service/data.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
 
 describe('SuccessFailureScreenComponent', () => {  //callback
 

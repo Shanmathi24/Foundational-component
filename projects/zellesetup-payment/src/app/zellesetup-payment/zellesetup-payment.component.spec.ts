@@ -1,214 +1,216 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { RouterTestingModule } from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-// import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-// import { ZellesetupPaymentComponent } from './zellesetup-payment.component';
 
+import { of } from 'rxjs';
 
-// import { of } from 'rxjs';
 
+import { Router } from '@angular/router';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
+import { ZellesetupPaymentComponent } from './zellesetup-payment.component';
+import { HeaderComponent } from 'projects/common/src/lib/component/header/header.component';
+import { ButtonComponent } from 'projects/common/src/lib/component/button/button.component';
 
-// import { Router } from '@angular/router';
-// import { ApiService } from 'projects/common/src/lib/service/api.service';
 
 
 
+describe('ZellesetupPaymentComponent', () => {
 
-// describe('ZellesetupPaymentComponent', () => {
+  //creating aliases
 
-//   //creating aliases
+  let component: ZellesetupPaymentComponent;
 
-//   let component: ZellesetupPaymentComponent;
+  let fixture: ComponentFixture<ZellesetupPaymentComponent>;
 
-//   let fixture: ComponentFixture<ZellesetupPaymentComponent>;
+  let apiService: ApiService;
 
-//   let apiService: ApiService;
+  let dataService: DataService;
 
-//   let dataService: DataService;
+  let router: Router;
 
-//   let router: Router;
+  // let httpMock: HttpTestingController;
 
-//   // let httpMock: HttpTestingController;
 
 
 
+  beforeEach(async () => {
 
-//   beforeEach(async () => {
+    await TestBed.configureTestingModule({
 
-//     await TestBed.configureTestingModule({
+      declarations: [ZellesetupPaymentComponent, HeaderComponent, ButtonComponent],
 
-//       declarations: [ZellesetupPaymentComponent, HeaderComponent, ButtonComponent],
+      imports: [RouterTestingModule, HttpClientTestingModule],
 
-//       imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [ApiService, DataService],
 
-//       providers: [ApiService, DataService],
+    }).compileComponents();
 
-//     }).compileComponents();
+  });
 
-//   });
 
 
 
+  beforeEach(() => {
 
-//   beforeEach(() => {
+    apiService = TestBed.inject(ApiService);
 
-//     apiService = TestBed.inject(ApiService);
+    spyOn(apiService, 'getZelleSetuppaymentHeaderData').and.returnValue(of({ screen1: 'Choose How to Receive Money' }));
 
-//     spyOn(apiService, 'getZelleSetuppaymentHeaderData').and.returnValue(of({ screen1: 'Choose How to Receive Money' }));
+    spyOn(apiService, 'getZelleSetuppaymentLiteralData').and.returnValue(of({
 
-//     spyOn(apiService, 'getZelleSetuppaymentLiteralData').and.returnValue(of({
+      accountSelectionText: 'You need an email, U.S. mobile number, or Zelle® tag to send and receive money',
 
-//       accountSelectionText: 'You need an email, U.S. mobile number, or Zelle® tag to send and receive money',
+      learnmore: 'Learn More',
 
-//       learnmore: 'Learn More',
+      new:'Add a new U.S. mobile number or email',
 
-//       new:'Add a new U.S. mobile number or email',
+      btnContinue: 'continue'
 
-//       btnContinue: 'continue'
+    }));
 
-//     }));
+    spyOn(apiService, 'getZelleSetuppaymentData').and.returnValue(of({
 
-//     spyOn(apiService, 'getZelleSetuppaymentData').and.returnValue(of({
+      accountSelection: {
 
-//       accountSelection: {
+        primaryAccountList: [
 
-//         primaryAccountList: [
+          { accountType: 'Phone', accountNo: '917-222-4367' },
 
-//           { accountType: 'Phone', accountNo: '917-222-4367' },
+          { accountType: 'Email', accountNo: 'alex.davis@gmail.com' },
 
-//           { accountType: 'Email', accountNo: 'alex.davis@gmail.com' },
+          { accountType: 'Create Zelle® Tag' },
 
-//           { accountType: 'Create Zelle® Tag' },
+        ],
 
-//         ],
+      },
 
-//       },
+    }));
 
-//     }));
 
 
 
+    fixture = TestBed.createComponent(ZellesetupPaymentComponent);
 
-//     fixture = TestBed.createComponent(ZellesetupPaymentComponent);
+    component = fixture.componentInstance;
 
-//     component = fixture.componentInstance;
+    fixture.detectChanges();
 
-//     fixture.detectChanges();
+  });
 
-//   });
 
 
 
+  it('should fetch header data from API and populate the header object', () => {
 
-//   it('should fetch header data from API and populate the header object', () => {
+    expect(apiService.getZelleSetuppaymentHeaderData).toHaveBeenCalled();
 
-//     expect(apiService.getZelleSetuppaymentHeaderData).toHaveBeenCalled();
+    expect(component.header).toEqual({ screen1: 'Choose How to Receive Money' });
 
-//     expect(component.header).toEqual({ screen1: 'Choose How to Receive Money' });
+  });
 
-//   });
 
 
 
+  it('should fetch literal data from API and populate the literal object', async () => {
 
-//   it('should fetch literal data from API and populate the literal object', async () => {
+    expect(apiService.getZelleSetuppaymentLiteralData).toHaveBeenCalled();
 
-//     expect(apiService.getZelleSetuppaymentLiteralData).toHaveBeenCalled();
 
 
 
+    const literalData = {
 
-//     const literalData = {
+      accountSelectionText: 'You need an email, U.S. mobile number, or Zelle® tag to send and receive money',
 
-//       accountSelectionText: 'You need an email, U.S. mobile number, or Zelle® tag to send and receive money',
+      learnmore: 'Learn More',
 
-//       learnmore: 'Learn More',
+      new:'Add a new U.S. mobile number or email',
 
-//       new:'Add a new U.S. mobile number or email',
+      btnContinue: 'continue'
 
-//       btnContinue: 'continue'
+    };
 
-//     };
 
 
 
+    await fixture.whenStable();
 
-//     await fixture.whenStable();
+    fixture.detectChanges();
 
-//     fixture.detectChanges();
 
 
 
+    expect(component.literal).toEqual(literalData);
 
-//     expect(component.literal).toEqual(literalData);
+  });
 
-//   });
 
 
 
+  it('should fetch account list from API and populate the accountList array', async () => {
 
-//   it('should fetch account list from API and populate the accountList array', async () => {
+    expect(apiService.getZelleSetuppaymentData).toHaveBeenCalled();
 
-//     expect(apiService.getZelleSetuppaymentData).toHaveBeenCalled();
 
 
 
+    const accountListData = {
 
-//     const accountListData = {
+      accountSelection: {
 
-//       accountSelection: {
+        primaryAccountList: [
 
-//         primaryAccountList: [
+          { accountType: 'Phone', accountNo: '917-222-4367' },
 
-//           { accountType: 'Phone', accountNo: '917-222-4367' },
+          { accountType: 'Email', accountNo: 'alex.davis@gmail.com' },
 
-//           { accountType: 'Email', accountNo: 'alex.davis@gmail.com' },
+          { accountType: 'Create Zelle® Tag' },
 
-//           { accountType: 'Create Zelle® Tag' },
+        ],
 
-//         ],
+      },
 
-//       },
+    };
 
-//     };
 
 
 
+    await fixture.whenStable();
 
-//     await fixture.whenStable();
+    fixture.detectChanges();
 
-//     fixture.detectChanges();
 
 
 
+    expect(component.accountList).toEqual(accountListData.accountSelection.primaryAccountList);
 
-//     expect(component.accountList).toEqual(accountListData.accountSelection.primaryAccountList);
+  });
 
-//   });
 
 
 
+  it('should navigate to the specified route when onSubmit method is called', () => {
 
-//   it('should navigate to the specified route when onSubmit method is called', () => {
+    const routerSpy = spyOn(component['_router'], 'navigate');
 
-//     const routerSpy = spyOn(component['_router'], 'navigate');
+    const routerLink = 'successscreen';
 
-//     const routerLink = 'successscreen';
 
 
 
+    component.onSubmit(routerLink);
 
-//     component.onSubmit(routerLink);
 
 
 
+    expect(routerSpy).toHaveBeenCalledWith([routerLink]);
 
-//     expect(routerSpy).toHaveBeenCalledWith([routerLink]);
-
-//   });
+  });
 
  
 
-// });
+});

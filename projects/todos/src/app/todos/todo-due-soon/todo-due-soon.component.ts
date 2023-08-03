@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
+import { SelectedItemsService } from 'projects/common/src/lib/service/selected-items.service';
 import { RoutingLinks } from 'src/app/screen-name';
-import { ApiService } from 'src/app/service/api.service';
-import { DataService } from 'src/app/service/data.service';
-import { SelectedItemsService } from 'src/app/service/selected-items.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

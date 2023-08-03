@@ -2,13 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { ApiService } from 'src/app/service/api.service';
-
-import { DataService } from 'src/app/service/data.service';
-
-import { ButtonType } from 'src/app/common/constant/constant';
 
 import { ZellepermissionsComponent } from './zellepermissions.component';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
+import { ButtonType } from 'projects/common/src/lib/component/constant/constant';
 
  
 
