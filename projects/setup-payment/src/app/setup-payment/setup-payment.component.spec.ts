@@ -5,19 +5,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { SetupPaymentComponent } from './setup-payment.component';
-
-import { ApiService } from 'src/app/service/api.service';
-
-import { DataService } from 'src/app/service/data.service';
-
 import { of } from 'rxjs';
-
-import { HeaderComponent } from 'src/app/common/header/header.component';
-
-import { ButtonComponent } from 'src/app/common/button/button.component';
-
 import { Router } from '@angular/router';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
+import { HeaderComponent } from 'projects/common/src/lib/component/header/header.component';
+import { ButtonComponent } from 'projects/common/src/lib/component/button/button.component';
 
 
 

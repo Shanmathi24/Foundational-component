@@ -3,15 +3,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RouterTestingModule } from '@angular/router/testing';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
 
 import { of } from 'rxjs';
-
-import { ApiService } from 'src/app/service/api.service';
-
-import { DataService } from 'src/app/service/data.service';
-
-
-
 
 import { SuccessScreenComponent } from './success-screen.component';
 

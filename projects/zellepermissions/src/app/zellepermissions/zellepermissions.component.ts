@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { ButtonType } from 'src/app/common/constant/constant';
+import { ButtonType } from 'projects/common/src/lib/component/constant/constant';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
 import { RoutingLinks } from 'src/app/screen-name';
-import { ApiService } from 'src/app/service/api.service';
-import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-zellepermissions',

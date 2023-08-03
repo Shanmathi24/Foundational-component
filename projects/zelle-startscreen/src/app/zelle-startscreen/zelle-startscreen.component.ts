@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonType } from 'src/app/common/constant/constant';
+import { ButtonType } from 'projects/common/src/lib/component/constant/constant';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
 import { RoutingLinks } from 'src/app/screen-name';
-import { ApiService } from 'src/app/service/api.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

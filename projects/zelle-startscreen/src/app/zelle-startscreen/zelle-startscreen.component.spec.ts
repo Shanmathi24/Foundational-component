@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
-import { ApiService } from 'src/app/service/api.service';
 import { ZelleStartscreenComponent } from './zelle-startscreen.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HeaderComponent } from 'src/app/common/header/header.component';
-import { ButtonComponent } from 'src/app/common/button/button.component';
 import { environment } from 'src/environments/environment';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { HeaderComponent } from 'projects/common/src/lib/component/header/header.component';
+import { ButtonComponent } from 'projects/common/src/lib/component/button/button.component';
 
 describe('ZelleStartscreenComponent', () => {
   let component: ZelleStartscreenComponent;

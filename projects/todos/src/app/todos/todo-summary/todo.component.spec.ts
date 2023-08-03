@@ -1,11 +1,11 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ButtonComponent } from 'projects/common/src/lib/component/button/button.component';
+import { HeaderComponent } from 'projects/common/src/lib/component/header/header.component';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { SelectedItemsService } from 'projects/common/src/lib/service/selected-items.service';
 import { of } from 'rxjs';
-import { ButtonComponent } from 'src/app/common/button/button.component';
-import { HeaderComponent } from 'src/app/common/header/header.component';
-import { ApiService } from 'src/app/service/api.service';
-import { SelectedItemsService } from 'src/app/service/selected-items.service';
 
 import { TodoComponent } from './todo.component';
 

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/service/data.service';
-import { ApiService } from 'src/app/service/api.service';
-import { ButtonType } from 'src/app/common/constant/constant';
 import { Router } from '@angular/router';
+import { ButtonType } from 'projects/common/src/lib/component/constant/constant';
+import { IAccountType, IBillType } from 'projects/common/src/lib/component/interface/interface';
+import { ApiService } from 'projects/common/src/lib/service/api.service';
+import { DataService } from 'projects/common/src/lib/service/data.service';
 import { RoutingLinks } from 'src/app/screen-name';
 import Utils from 'src/assets/utilities/util';
-import { IAccountType, IBillType } from 'src/app/common/interface/interface';
+
 @Component({
   selector: 'app-setup-payment',
   templateUrl: './setup-payment.component.html',
