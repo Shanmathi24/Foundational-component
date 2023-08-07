@@ -23,7 +23,7 @@
     </div>
     <div class="btncontainer">
         <!-- <lib-common [type]="buttonType.SUBMIT" [data]="literal.confirmationbutton" [disabled]="!checkbox1"></lib-common> -->
-        <p360-button [type]="buttonType.SUBMIT" [data]="literal.confirmationbutton" [disabled]="!checkbox1"></p360-button>
+        <p360-button [type]="buttonType.SUBMIT" [data]="literal.confirmationbutton" [disabled]="!checkbox1" (click)="onSubmit(route.ADDBILLS)"></p360-button>
         <!-- <lib-common class="some" [type]="buttonType.CANCEL" (click)="Cancel()" [data]="literal.skipbutton"></lib-common> -->
         <p360-button class="some" [type]="buttonType.CANCEL" (click)="Cancel()" [data]="literal.skipbutton">{{literal.skipbutton}}</p360-button>
     </div>
