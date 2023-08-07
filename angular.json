@@ -71,7 +71,11 @@
               "browserTarget": "Foundational-Component-project:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 2500,
+            "publicHost": "http://localhost:2500"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

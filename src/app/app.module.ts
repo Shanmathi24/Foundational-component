@@ -44,6 +44,12 @@ import { PermissionsComponent } from 'projects/permissions/src/app/permissions/p
 import { RecentActivityComponent } from 'projects/recent-activity/src/app/recent-activity/recent-activity.component';
 import { SelectAddBillsComponent } from 'projects/select-add-bills/src/app/select-add-bills/select-add-bills.component';
 import { SelectPrimaryAccountComponent } from 'projects/select-primary-account/src/app/select-primary-account/select-primary-account.component';
+import { SelectedItemsService } from 'projects/common/src/lib/service/selected-items.service';
+import { SelectedBillerService } from 'projects/common/src/lib/service/selected-biller.service';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -99,7 +105,8 @@ import { SelectPrimaryAccountComponent } from 'projects/select-primary-account/s
     //ButtonComponent
     SuccessFailureScreenComponent
   ],
-  providers: [],
+  providers: [ SelectedItemsService,
+    SelectedBillerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

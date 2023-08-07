@@ -10,12 +10,20 @@
 </div>
  -->
  <div class="home">
-    <button class="menu" routerLink="/successfailure">Success/Failure screen</button>
-    <button class="menu" routerLink="/startscreen">Bill-Pay Onboarding</button>
+
     <button class="menu" (click)="onPaymentClick('biller')">Bill Payment</button>
     <button class="menu" (click)="onPaymentClick('sender')">Send Payment</button>
     <button class="menu" (click)="onPaymentClick('requestor')">Request Payment</button>
-    <button class="menu" (click)="onClick1('onboarding')">Add Bills</button>
+    <button class="menu" routerLink="/startscreen" >start screen</button>
+    <button class="menu" routerLink="/addbills">Add bills</button>
+    <button class="menu" routerLink="/successfailure">Success/Failure screen</button>
+    <button class="menu" routerLink="/zelle-success">Zelle Success Screen</button>  
+    <button class="menu" routerLink="/successfailure">Success/Failure screen</button>
+    <button class="menu" routerLink="/startscreen">Bill-Pay Onboarding</button>
+    <!-- <button class="menu" (click)="onPaymentClick('biller')">Bill Payment</button>
+    <button class="menu" (click)="onPaymentClick('sender')">Send Payment</button>
+    <button class="menu" (click)="onPaymentClick('requestor')">Request Payment</button> -->
+    <!-- <button class="menu" (click)="onClick1('onboarding')">Add Bills</button> -->
     <!-- <button class="menu" (click)="onClick2('zelleonboarding')">Select Primary Account</button> -->
     <button class="menu" (click)="onClick3('todo')">To-do</button>
 <!-- <button class="menu" (click)="onClick4('startscreen')">Bill-Pay Onboarding</button> -->
